@@ -17,22 +17,26 @@
       }
     </style>
   </head>
-  <body>
-    <div id="cookie"></div>
+  <body align="center">
     <div id="score">Score: 0</div>
+    <div id="cookie"></div>
     <script>
-    // Get the cookie and score elements
+// Get the cookie and score elements
 const cookie = document.querySelector("#cookie");
 const scoreDisplay = document.querySelector("#score");
 
-// Set the initial score to 0
-let score = 0;
+// Get the saved score from local storage or set it to 0 if there is no saved score
+let score = localStorage.getItem("score") || 0;
+
+// Update the score display with the saved score
+scoreDisplay.textContent = `Score: ${score}`;
 
 // Add an event listener to the cookie to increase the score
 cookie.addEventListener("click", function () {
   score += 1;
   scoreDisplay.textContent = `Score: ${score}`;
-}); 
+  localStorage.setItem("score", score);
+});
     </script>
   </body>
 </html>
