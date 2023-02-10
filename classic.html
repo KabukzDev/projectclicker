@@ -42,23 +42,12 @@
         border-radius: 5px;
         cursor: pointer;
       }
-      
-      #dark-theme-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #555;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
     </style>
   </head>
   <body>
     <div id="score">Score: 0</div>
     <div id="cookie"></div>
     <button id="reset-button">Reset Score</button>
-    <button id="dark-theme-button">Dark Theme</button>
     <script>
 // Get the cookie and score elements
 const cookie = document.querySelector("#cookie");
@@ -85,20 +74,6 @@ resetButton.addEventListener("click", function () {
   score = 0;
   scoreDisplay.textContent = `Score: ${score}`;
   localStorage.setItem("score", score);
-});
-      
- // Get the dark theme button element
-const darkThemeButton = document.querySelector("#dark-theme-button");
-
-// Add an event listener to the dark theme
-document.getElementById("dark-theme-toggle").addEventListener("click", function () {
-if (document.body.classList.contains("dark-theme")) {
-document.body.classList.remove("dark-theme");
-localStorage.removeItem("dark-theme");
-} else {
-document.body.classList.add("dark-theme");
-localStorage.setItem("dark-theme", "enabled");
-}
 });
     </script>
   </body>
