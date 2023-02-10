@@ -47,24 +47,37 @@
   <body>
     <div id="cookie"></div>
     <br>
-    <br>
     <div id="score">Score: 0</div>
-    <script>
+    <br>
+    <button id="reset-button">Reset Score</button>
+  </body>
+  <script>
+    // Get the initial score from local storage (or set it to 0 if it's not set)
+    let score = localStorage.getItem("score");
+    if (score === null) {
+      score = 0;
+    }
+  
+    // Update the score element to reflect the initial score
+    const scoreElement = document.querySelector("#score");
+    scoreElement.innerHTML = "Score: " + score;
+  
     // Get the cookie element and add an event listener for clicks
     const cookie = document.querySelector("#cookie");
     cookie.addEventListener("click", function() {
       // Increase the score by 1 each time the cookie is clicked
-      const score = document.querySelector("#score");
-      score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(" ")[1]) + 1);
+      score = parseInt(score) + 1;
+      scoreElement.innerHTML = "Score: " + score;
+      localStorage.setItem("score", score);
     });
   
     // Get the reset button and add an event listener for clicks
     const resetButton = document.querySelector("#reset-button");
     resetButton.addEventListener("click", function() {
       // Reset the score to 0 when the reset button is clicked
-      const score = document.querySelector("#score");
-      score.innerHTML = "Score: 0";
+      score = 0;
+      scoreElement.innerHTML = "Score: 0";
+      localStorage.setItem("score", score);
     });
-    </script>
-  </body>
+  </script>
 </html>
