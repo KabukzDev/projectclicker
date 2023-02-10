@@ -47,6 +47,7 @@
   <body>
     <div id="score">Score: 0</div>
     <div id="cookie"></div>
+    <button id="reset-button">Reset Score</button>
     <script>
 // Get the cookie and score elements
 const cookie = document.querySelector("#cookie");
@@ -61,6 +62,16 @@ scoreDisplay.textContent = `Score: ${score}`;
 // Add an event listener to the cookie to increase the score
 cookie.addEventListener("click", function () {
   score += 1;
+  scoreDisplay.textContent = `Score: ${score}`;
+  localStorage.setItem("score", score);
+});
+ 
+// Get the reset button element
+const resetButton = document.querySelector("#reset-button");
+
+// Add an event listener to the reset button to reset the score
+resetButton.addEventListener("click", function () {
+  score = 0;
   scoreDisplay.textContent = `Score: ${score}`;
   localStorage.setItem("score", score);
 });
