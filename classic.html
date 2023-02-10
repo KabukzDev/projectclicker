@@ -65,17 +65,10 @@
 const cookie = document.querySelector("#cookie");
 const scoreDisplay = document.querySelector("#score");
 
-// Get the saved score from local storage or set it to 0 if there is no saved score
-let score = localStorage.getItem("score") || 0;
-
-// Update the score display with the saved score
-scoreDisplay.textContent = `Score: ${score}`;
-
 // Add an event listener to the cookie to increase the score
 cookie.addEventListener("click", function () {
   score += 1;
   scoreDisplay.textContent = `Score: ${score}`;
-  localStorage.setItem("score", score);
 });
  
 // Get the reset button element
@@ -85,7 +78,6 @@ const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", function () {
   score = 0;
   scoreDisplay.textContent = `Score: ${score}`;
-  localStorage.setItem("score", score);
 });
     </script>
   </body>
