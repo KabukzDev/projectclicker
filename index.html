@@ -181,14 +181,14 @@ document
 document
   .querySelector("#double-points")
   .addEventListener("click", () => {
-    buyUpgrade("double-points", 100, doublePoints);
+    buyUpgrade("double-points", 100, "doublePoints");
   });
     
     // Handle the click on the point generator upgrade
 document
     .querySelector("#point-generator")
     .addEventListener("click", () => {
-    buyUpgrade("point-generator", 500, pointGenerator);
+    buyUpgrade("point-generator", 100, "pointGenerator");
     startPointGenerator();
   });
 
@@ -196,21 +196,21 @@ document
 document
   .querySelector("#triple-points")
   .addEventListener("click", () => {
-    buyUpgrade("triple-points", 1000, triplePoints);
+    buyUpgrade("triple-points", 1000, "triplePoints");
   });
 
 // Handle the click on the quadruple points upgrade
 document
   .querySelector("#quadruple-points")
   .addEventListener("click", () => {
-    buyUpgrade("quadruple-points", 5000, quadruplePoints);
+    buyUpgrade("quadruple-points", 5000, "quadruplePoints");
   });
 
 // Handle the click on the super generator upgrade
 document
   .querySelector("#super-generator")
   .addEventListener("click", () => {
-    buyUpgrade("super-generator", 10000, superGenerator);
+    buyUpgrade("super-generator", 10000, "superGenerator");
   });
 
 // Save the score and upgrades to local storage        
