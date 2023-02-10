@@ -79,36 +79,6 @@
   <script>
    // Keep track of the score
 let score = 0;
-    
-    // Save the score and upgrades to local storage
-function saveGame() {
-  localStorage.setItem("score", score);
-  localStorage.setItem("point-generator", pointGenerator);
-  localStorage.setItem("triple-points", triplePoints);
-  localStorage.setItem("quadruple-points", quadruplePoints);
-  localStorage.setItem("super-generator", superGenerator);
-}
-
-// Load the score and upgrades from local storage
-function loadGame() {
-  score = localStorage.getItem("score") || 0;
-  pointGenerator = localStorage.getItem("point-generator") || 0;
-  triplePoints = localStorage.getItem("triple-points") || 0;
-  quadruplePoints = localStorage.getItem("quadruple-points") || 0;
-  superGenerator = localStorage.getItem("super-generator") || 0;
-}
-
-// Call loadGame function to load the saved data on page load
-loadGame();
-
-// Update the score and save the game every time the score changes
-setInterval(() => {
-  score =
-    score +
-    pointGenerator * (triplePoints + 1) * (quadruplePoints + 1) * (superGenerator + 1);
-  document.querySelector("#score").innerHTML = score;
-  saveGame();
-}, 1000);
 
 // Keep track of the upgrades
 let doublePoints = false;
@@ -239,7 +209,36 @@ document
 // Handle the click on the super generator upgrade
 document
   .querySelector("#super-generator")
-  .addEventListener("click", () => {
+  .addEventListener("click",// Save the score and upgrades to local storage
+function saveGame() {
+  localStorage.setItem("score", score);
+  localStorage.setItem("point-generator", pointGenerator);
+  localStorage.setItem("triple-points", triplePoints);
+  localStorage.setItem("quadruple-points", quadruplePoints);
+  localStorage.setItem("super-generator", superGenerator);
+}
+
+// Load the score and upgrades from local storage
+function loadGame() {
+  score = localStorage.getItem("score") || 0;
+  pointGenerator = localStorage.getItem("point-generator") || 0;
+  triplePoints = localStorage.getItem("triple-points") || 0;
+  quadruplePoints = localStorage.getItem("quadruple-points") || 0;
+  superGenerator = localStorage.getItem("super-generator") || 0;
+}
+
+// Call loadGame function to load the saved data on page load
+loadGame();
+
+// Update the score and save the game every time the score changes
+setInterval(() => {
+  score =
+    score +
+    pointGenerator * (triplePoints + 1) * (quadruplePoints + 1) * (superGenerator + 1);
+  document.querySelector("#score").innerHTML = score;
+  saveGame();
+}, 1000);
+ () => {
     buyUpgrade("super-generator", 10000, superGenerator);
   });
   </script>
