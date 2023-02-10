@@ -32,28 +32,37 @@
         margin-top: 20px;
         color: #555;
       }
+      
+      #reset-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #555;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div id="cookie"></div>
     <div id="score">Score: 0</div>
     <script>
-// Get the cookie and score elements
-const cookie = document.querySelector("#cookie");
-const scoreDisplay = document.querySelector("#score");
-
-// Get the saved score from local storage or set it to 0 if there is no saved score
-let score = localStorage.getItem("score") || 0;
-
-// Update the score display with the saved score
-scoreDisplay.textContent = `Score: ${score}`;
-
-// Add an event listener to the cookie to increase the score
-cookie.addEventListener("click", function () {
-  score += 1;
-  scoreDisplay.textContent = `Score: ${score}`;
-  localStorage.setItem("score", score);
-});
+    // Get the cookie element and add an event listener for clicks
+    const cookie = document.querySelector("#cookie");
+    cookie.addEventListener("click", function() {
+      // Increase the score by 1 each time the cookie is clicked
+      const score = document.querySelector("#score");
+      score.innerHTML = "Score: " + (parseInt(score.innerHTML.split(" ")[1]) + 1);
+    });
+  
+    // Get the reset button and add an event listener for clicks
+    const resetButton = document.querySelector("#reset-button");
+    resetButton.addEventListener("click", function() {
+      // Reset the score to 0 when the reset button is clicked
+      const score = document.querySelector("#score");
+      score.innerHTML = "Score: 0";
+    });
     </script>
   </body>
 </html>
