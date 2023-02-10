@@ -209,7 +209,11 @@ document
 // Handle the click on the super generator upgrade
 document
   .querySelector("#super-generator")
-  .addEventListener("click",// Save the score and upgrades to local storage
+  .addEventListener("click", () => {
+    buyUpgrade("super-generator", 10000, superGenerator);
+  });
+
+// Save the score and upgrades to local storage        
 function saveGame() {
   localStorage.setItem("score", score);
   localStorage.setItem("point-generator", pointGenerator);
