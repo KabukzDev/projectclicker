@@ -77,7 +77,7 @@
     <button id="reset-button">Reset Score</button>
   </body>
   <script>
-   // Keep track of the score
+  // Keep track of the score
 let score = 0;
 
 // Keep track of the upgrades
@@ -137,12 +137,12 @@ const checkAvailability = (upgradeCost) => {
 const buyUpgrade = (upgradeId, upgradeCost, upgradeFlag) => {
   if (checkAvailability(upgradeCost)) {
     score -= upgradeCost;
-    upgradeFlag = true;
+    window[upgradeFlag] = true;
     updateScore();
     document.querySelector(`#${upgradeId}`).classList.add("unavailable");
   }
 };
-
+    
 // Reset the score
 const resetScore = () => {
   score = 0;
