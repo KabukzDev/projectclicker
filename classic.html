@@ -26,7 +26,7 @@
       color: white;
       }
       
-      #reset-button {
+      #reset {
        background-color: #18191A;
        color: white;
        border: none;
@@ -70,9 +70,12 @@ cookie.addEventListener("click", function() {
 });
 
 resetBtn.addEventListener("click", function() {
-  score = 0;
-  scoreDisplay.innerHTML = `Score: ${score}`;
-  localStorage.setItem("cookieClickerScore", score);
+  const resetConfirmation = confirm("Are you sure you want to reset your score?");
+  if (resetConfirmation) {
+    score = 0;
+    scoreDisplay.innerHTML = `Score: ${score}`;
+    localStorage.setItem("cookieClickerScore", score);
+  }
 });
     </script>
   </body>
